@@ -17,7 +17,7 @@ import { useEffect, useState } from "react";
  * @returns {JSX.Element}
  *   The custom mouse cursor element.
  */
-function CustomMouseCross({ mousePosition, isHovering }) {
+function CustomMouseCross({ mousePosition, isHovering, message }) {
     const variants = {
         initial: [
             { x1: 24.5, y1: 25, x2: 24.5, y2: 0 }, // Vertical line (middle)
@@ -49,19 +49,16 @@ function CustomMouseCross({ mousePosition, isHovering }) {
     });
 
     const controls = useAnimation();
-    const [timeoutId, setTimeoutId] = useState(null);
 
     // Recenter the SVG to the exact mouse position after 1s of inactivity
     useEffect(() => {
         x.set(mousePosition.x);
         y.set(mousePosition.y);
-
-        if (timeoutId) clearTimeout(timeoutId);
     }, [mousePosition, x, y, controls]);
 
+    useEffect(() => {}, [isHovering]);
+
     // TODO: Adjust dummy Text to component parameters
-    const message = "Hello World!";
-    const letters = Array.from(message);
 
     return (
         <>
@@ -97,22 +94,17 @@ function CustomMouseCross({ mousePosition, isHovering }) {
                 ))}
             </motion.svg>
             {/* Wipe opacity animation for floating text next to cursor only during hovering */}
-            {isHovering && (
+            {isHovering && message && (
                 <motion.p
-                    className="fixed pointer-events-none bg-[--col-base-300]"
+                    className="fixed pointer-events-none bg-[--col-base-300] bg-opacity-75 px-2 py-1 rounded"
                     style={{
                         translateX: "0%",
                         translateY: "-200%",
                         x: smoothX,
                         y: smoothY,
                     }}
-                    animate={controls}
-                    transition={{ duration: 0.2, ease: "easeInOut" }}
-                    exit={{
-                        opacity: 0,
-                    }}
                 >
-                    {letters.map((letter, index) => (
+                    {message.split("").map((letter, index) => (
                         <motion.span
                             key={index}
                             initial={{ opacity: 0 }}
