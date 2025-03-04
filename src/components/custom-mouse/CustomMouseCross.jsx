@@ -68,7 +68,7 @@ function CustomMouseCross({ mousePosition, isHovering, message }) {
                 viewBox="0 0 49 49"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="fixed pointer-events-none"
+                className=" mix-blend-difference bg-blend-difference fixed pointer-events-none"
                 style={{
                     translateX: "-125%",
                     translateY: "-125%",

@@ -1,10 +1,30 @@
+import { Link } from "react-router-dom";
+
 function Navbar() {
     return (
-        <div className="flex text-nowrap text-xs sm:text-sm md:text-base justify-between">
-            <h1>DEV-PORTFOLIO</h1>
+        <div className="flex pointer-events-auto text-nowrap text-xs sm:text-sm md:text-base justify-between">
+            <Link
+                to={"/"}
+                className="hoverable hover:cursor-pointer"
+                data-hover-message="Return Home?"
+            >
+                DEV-PORTFOLIO
+            </Link>
             <div className="items flex gap-10">
-                <h1>CONTACT</h1>
-                <h1>PROJECTS</h1>
+                <Link
+                    to={"/contact"}
+                    alt="Get in contact with me!"
+                    className="hoverable pointer-events-auto hover:cursor-pointer"
+                >
+                    CONTACT
+                </Link>
+                <Link
+                    to={"/projects"}
+                    alt="Get in contact with me!"
+                    className="hoverable pointer-events-auto hover:cursor-pointer"
+                >
+                    PROJECTS
+                </Link>
             </div>
         </div>
     );

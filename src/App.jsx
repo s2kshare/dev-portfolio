@@ -1,8 +1,14 @@
 import { useEffect, useRef, useState } from "react";
-import Navbar from "./components/Navbar";
 import CustomMouseCross from "./components/custom-mouse/CustomMouseCross";
 import Frame from "./components/Frame";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
+import { FaGithub } from "react-icons/fa6";
+import { IoIosMail } from "react-icons/io";
+import { IoMdDownload } from "react-icons/io";
+import IHateThisPhoto from "./assets/ew_its_me.png";
+import HomePage from "./pages/HomePage";
+import ContactPage from "./pages/ContactPage";
+import ProjectPage from "./pages/ProjectPage";
 
 function App() {
     const appref = useRef();
@@ -63,17 +69,18 @@ function App() {
                 <Frame mousePosition={mousePosition} />
                 <div className=" text-2xl font-semibold overflow-scroll rounded-xl p-2 md:p-8 mx-0 md:mx-16 my-16 bg-[--col-base-300] h-[85%] flex flex-col md:flex-row">
                     <div className="flex-1 items-center justify-center flex flex-col">
-                        <div className="flex flex-col mx-6">
+                        <div className="flex flex-col mx-6 hover:cursor-default">
                             <div
                                 data-hover-message="Hey! Its ME!"
                                 className="box hoverable mb-3 self-center md:self-start rounded-xl h-32 w-32"
                             >
                                 <img
                                     className="hoverable w-full h-full object-cover rounded-xl"
-                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoFRQjM-wM_nXMA03AGDXgJK3VeX7vtD3ctA&s"
+                                    src={IHateThisPhoto}
                                     alt="Hey Look! Its me :)"
                                 />
                             </div>
+                            dev-portfolio
                             <h1 className="text-center md:text-start">
                                 DEVONTAE CHADWICK
                             </h1>
@@ -89,15 +96,29 @@ function App() {
                                 with technologies like React, ASP.NET, Python,
                                 and SQL.
                             </p>
+                            <div className="socials mt-5 flex gap-3">
+                                <FaGithub className="w-8 h-8" />
+                                <IoIosMail className="w-8 h-8" />
+                            </div>
+                            <div className=" hoverable transition-all text-base hover:cursor-pointer hover:text-blue-400 mt-3 flex gap-3 text-[--col-text-base] py-3">
+                                <IoMdDownload className="w-7 h-7" /> Download
+                                Resume
+                            </div>
                         </div>
                     </div>
                     <div className="flex-[2_2_0%] flex flex-col md:flex-row mt-3 gap-4">
                         <div className="flex-1 w-full h-full bg-red-400 rounded-md">
-                            <img
-                                className="hoverable w-full h-full object-cover rounded-md"
-                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoFRQjM-wM_nXMA03AGDXgJK3VeX7vtD3ctA&s"
-                                alt="Hey Look! Its me :)"
-                            />
+                            <Routes>
+                                <Route path="/" element={<HomePage />} />
+                                <Route
+                                    path="/contact"
+                                    element={<ContactPage />}
+                                />
+                                <Route
+                                    path="/projects"
+                                    element={<ProjectPage />}
+                                />
+                            </Routes>
                         </div>
                     </div>
                 </div>
