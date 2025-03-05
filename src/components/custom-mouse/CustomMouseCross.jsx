@@ -50,15 +50,13 @@ function CustomMouseCross({ mousePosition, isHovering, message }) {
 
     const controls = useAnimation();
 
-    // Recenter the SVG to the exact mouse position after 1s of inactivity
+    // Recenter the SVG to the exact mouse position
     useEffect(() => {
         x.set(mousePosition.x);
         y.set(mousePosition.y);
     }, [mousePosition, x, y, controls]);
 
     useEffect(() => {}, [isHovering]);
-
-    // TODO: Adjust dummy Text to component parameters
 
     return (
         <>
@@ -96,7 +94,7 @@ function CustomMouseCross({ mousePosition, isHovering, message }) {
             {/* Wipe opacity animation for floating text next to cursor only during hovering */}
             {isHovering && message && (
                 <motion.p
-                    className="fixed pointer-events-none bg-[--col-base-300] bg-opacity-75 px-2 py-1 rounded"
+                    className="fixed pointer-events-none bg-[--col-base-300] px-2 py-1 rounded"
                     style={{
                         translateX: "0%",
                         translateY: "-200%",

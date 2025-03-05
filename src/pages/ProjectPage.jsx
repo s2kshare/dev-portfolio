@@ -35,7 +35,7 @@ function ProjectPage() {
     };
 
     return (
-        <div>
+        <div className="p-5">
             <h1 className="mb-6 text-3xl text-center">Recent Projects</h1>
             <hr className=" border-[--col-base-300] mt-4 mb-10 opacity-40" />
             <div className={`w-full grid gap-6 ${columns} h-full`}>

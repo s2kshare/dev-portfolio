@@ -106,9 +106,16 @@ function App() {
                 <div className=" text-2xl font-semibold rounded-xl p-2 md:p-8 mx-0 md:mx-16 my-16 bg-[--col-base-300] h-[85%] flex flex-col md:flex-row">
                     <DeveloperSidePanel />
                     <div className="flex-[2_2_0%] flex flex-col md:flex-row mt-3 gap-4">
-                        <div className="flex-1 overflow-scroll w-full p-4 h-full bg-[--col-text-base] text-[--col-base-200] rounded-md p-">
+                        <div className="flex-1 overflow-scroll w-full h-full bg-[--col-text-base] text-[--col-base-200] rounded-md p-">
                             <Routes>
-                                <Route path="/" element={<HomePage />} />
+                                <Route
+                                    path="/"
+                                    element={
+                                        <HomePage
+                                            mousePosition={mousePosition}
+                                        />
+                                    }
+                                />
                                 <Route
                                     path="/contact"
                                     element={<ContactPage />}

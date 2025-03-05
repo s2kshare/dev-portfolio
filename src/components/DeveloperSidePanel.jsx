@@ -32,12 +32,26 @@ function DeveloperSidePanel() {
                     Python, and SQL.
                 </p>
                 <div className="socials mt-5 flex gap-3">
-                    <FaGithub className="w-8 h-8" />
-                    <IoIosMail className="w-8 h-8" />
+                    <a
+                        href="https://github.com/s2kshare"
+                        className=" hoverable pointer-events-auto"
+                        target="_blank"
+                        alt="Checkout my GitHub!"
+                    >
+                        <FaGithub className="w-8 h-8" />
+                    </a>
+                    <a
+                        href="mailto:s2kdevelopshare@gmail.com"
+                        alt="Send me an Email!"
+                        className=" hoverable pointer-events-auto"
+                    >
+                        <IoIosMail className="w-8 h-8" />
+                    </a>
                 </div>
                 <a
                     download
                     href={ResumePDF}
+                    alt="YES! HIRE ME!!! :D"
                     className=" hoverable transition-all text-base hover:cursor-pointer hover:text-blue-400 mt-3 flex gap-3 text-[--col-text-base] py-3"
                 >
                     <IoMdDownload className="w-7 h-7" /> Download Resume
