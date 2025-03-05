@@ -39,13 +39,16 @@ function ProjectPage({ variants }) {
             variants={variants}
             initial="initial"
             animate="final"
-            className="p-5"
+            className="p-5 my-8"
         >
             <h1 className="mb-6 text-3xl text-center">Recent Projects</h1>
             <hr className=" border-[--col-base-300] mt-4 mb-10 opacity-40" />
-            <div className={`w-full grid gap-6 ${columns} h-full`}>
+            <div className={`w-full grid gap-6 md:${columns} h-full`}>
                 {Object.entries(projects).map(([key, project]) => (
-                    <div className="project-item w-full h-full" key={key}>
+                    <div
+                        className="project-item w-full h-full overflow-hidden"
+                        key={key}
+                    >
                         <img
                             src={project.image}
                             className="w-full h-auto rounded-t-xl"

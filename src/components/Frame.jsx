@@ -32,7 +32,7 @@ function Frame({ mousePosition }) {
                 <Link
                     to={"https://github.com/s2kshare/dev-portfolio"}
                     target="_blank"
-                    className="pointer-events-auto"
+                    className="pointer-events-auto hidden sm:visible"
                 >
                     SOURCE_CODE
                 </Link>

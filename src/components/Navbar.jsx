@@ -14,7 +14,7 @@ function Navbar() {
                 <Link
                     to={"/"}
                     alt="Just hold on, we're going home!"
-                    className="hoverable pointer-events-auto hover:cursor-pointer"
+                    className="hoverable pointer-events-auto hidden md:visible hover:cursor-pointer"
                 >
                     HOME
                 </Link>

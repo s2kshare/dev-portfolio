@@ -18,7 +18,9 @@ function DeveloperSidePanel() {
                         alt="Hey Look! Its me :)"
                     />
                 </div>
-                <span className=" text-xs text-gray-500">dev-portfolio</span>
+                <span className=" text-xs text-center md:text-start text-gray-500">
+                    dev-portfolio
+                </span>
                 <h1 className="text-center md:text-start">DEVONTAE CHADWICK</h1>
                 <p className="text-sm font-normal text-center md:text-start">
                     Developer x Designer
@@ -52,7 +54,7 @@ function DeveloperSidePanel() {
                     download
                     href={ResumePDF}
                     alt="YES! HIRE ME!!! :D"
-                    className=" hoverable transition-all text-base hover:cursor-pointer hover:text-blue-400 mt-3 flex gap-3 text-[--col-text-base] py-3"
+                    className=" hoverable transition-all text-[--col-text-base] text-base hover:cursor-pointer hover:text-blue-400 mt-3 flex gap-3 py-3"
                 >
                     <IoMdDownload className="w-7 h-7" /> Download Resume
                 </a>

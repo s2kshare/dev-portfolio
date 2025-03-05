@@ -102,7 +102,7 @@ function App() {
             <LocationProvider>
                 <div
                     ref={appref}
-                    className="bg-[--col-base-200] text-white w-screen h-[100vh] min-h-[100vh] p-10"
+                    className="bg-[--col-base-200] text-white w-screen h-[100vh] min-h-[100vh] p-2 md:p-10"
                     onMouseMove={handleMouseMove}
                 >
                     <CustomMouseCross
@@ -111,7 +111,7 @@ function App() {
                         message={hoverMessage}
                     />
                     <Frame mousePosition={mousePosition} />
-                    <div className=" text-2xl font-semibold rounded-xl p-2 md:p-8 mx-0 md:mx-16 my-16 bg-[--col-base-300] h-[85%] flex flex-col md:flex-row">
+                    <div className=" text-2xl font-semibold rounded-xl h-0 md:h-[90%] p-2 md:p-8 mx-0 md:mx-16 my-16 md:bg-[--col-base-300] flex flex-col md:flex-row">
                         <DeveloperSidePanel />
                         <div className="flex-[2_2_0%] flex flex-col md:flex-row mt-3 gap-4">
                             <div className="flex-1 overflow-scroll w-full h-full bg-[--col-text-base] text-[--col-base-200] rounded-md p-">
@@ -155,15 +155,14 @@ function RoutesWithAnimation({ mousePosition }) {
     const location = useLocation();
     const routeVariants = {
         initial: {
-            opacity: 0,
-            y: "50px",
+            y: "100vh",
         },
         final: {
-            opacity: 1,
-            y: "0px",
+            y: "0vh",
             transition: {
+                type: "easeInOut",
+                mass: 0.4,
                 duration: 0.5,
-                delay: 0.5,
             },
         },
     };

@@ -31,7 +31,7 @@ function HomePage({ variants }) {
             variants={variants}
             initial="initial"
             animate="final"
-            className="flex items-center justify-center w-full h-full flex-col"
+            className="flex items-center overflow-scroll justify-center w-full h-full min-h-[25vh] flex-col"
             onMouseMove={handleMouseMove}
         >
             <motion.h1 className="text-6xl font-semibold flex gap-2">
@@ -114,7 +114,7 @@ function HomePage({ variants }) {
             </p>
             <div className="flex gap-2">
                 <motion.button
-                    className="py-2 flex gap-2 items-center px-4 mt-4 bg-[--col-base-300] rounded-md text-white hover:bg-[--col-base-100] transition duration-300 text-base"
+                    className="py-2 hidden sm:flex gap-2 items-center px-4 mt-4 bg-[--col-base-300] rounded-md text-white hover:bg-[--col-base-100] transition duration-300 text-base"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.9 }}
                     onClick={() => navigate("/projects")}

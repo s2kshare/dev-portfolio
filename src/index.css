@@ -14,3 +14,7 @@
 
     --col-text-base: #b9b9b9;
 }
+
+body {
+    background-color: var(--col-base-200);
+}
