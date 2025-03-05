@@ -12,6 +12,13 @@ function Navbar() {
             </Link>
             <div className="items flex gap-10">
                 <Link
+                    to={"/"}
+                    alt="Just hold on, we're going home!"
+                    className="hoverable pointer-events-auto hover:cursor-pointer"
+                >
+                    HOME
+                </Link>
+                <Link
                     to={"/contact"}
                     alt="Get in contact with me!"
                     className="hoverable pointer-events-auto hover:cursor-pointer"

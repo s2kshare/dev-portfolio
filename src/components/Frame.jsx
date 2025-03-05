@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 
 function Frame({ mousePosition }) {
@@ -28,13 +29,13 @@ function Frame({ mousePosition }) {
                 </div>
             </div>
             <div className="bot-nav pointer-events-none flex-1 flex flex-col justify-end">
-                <a
-                    href="https://google.com"
+                <Link
+                    to={"https://github.com/s2kshare/dev-portfolio"}
                     target="_blank"
                     className="pointer-events-auto"
                 >
                     SOURCE_CODE
-                </a>
+                </Link>
             </div>
         </div>
     );

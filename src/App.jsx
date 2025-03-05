@@ -2,13 +2,11 @@ import { useEffect, useRef, useState } from "react";
 import CustomMouseCross from "./components/custom-mouse/CustomMouseCross";
 import Frame from "./components/Frame";
 import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
-import { FaGithub } from "react-icons/fa6";
-import { IoIosMail } from "react-icons/io";
-import { IoMdDownload } from "react-icons/io";
-import IHateThisPhoto from "./assets/ew_its_me.png";
+
 import HomePage from "./pages/HomePage";
 import ContactPage from "./pages/ContactPage";
 import ProjectPage from "./pages/ProjectPage";
+import DeveloperSidePanel from "./components/DeveloperSidePanel";
 
 function App() {
     const appref = useRef();
@@ -16,13 +14,31 @@ function App() {
     const [isHovering, setIsHovering] = useState(false);
     const [hoverMessage, setHoverMessage] = useState("");
 
+    /**
+     * Sets the state of the mouse position from the clientX and clientY
+     * coordinates from the given event.
+     *
+     * @param {MouseEvent} e
+     *   The mouse event that triggered the function.
+     */
     const handleMouseMove = (e) => {
         const { clientX, clientY } = e;
         setMousePosition({ x: clientX, y: clientY });
     };
 
+    // Custom Classes for handling pointer events issue
     const allowedSelectors = [".hoverable", ".clickable"];
 
+    /**
+     * Handles the mouseover event by setting the hoverMessage state and
+     * isHovering state. This function is also responsible for ignoring the
+     * mouseover event if the target element is not one of the allowed selectors.
+     *
+     * @param {MouseEvent} e
+     *   The mouse event that triggered the function.
+     *
+     * @return {void}
+     */
     const handleMouseOver = (e) => {
         if (
             !allowedSelectors.some((selector) => event.target.matches(selector))
@@ -37,6 +53,15 @@ function App() {
         setIsHovering(true);
     };
 
+    /**
+     * Handles the mouseout event by setting the isHovering state to false if
+     * the target element is one of the allowed selectors.
+     *
+     * @param {MouseEvent} event
+     *   The mouse event that triggered the function.
+     *
+     * @return {void}
+     */
     const handleMouseOut = (event) => {
         if (
             allowedSelectors.some((selector) => event.target.matches(selector))
@@ -45,9 +70,20 @@ function App() {
         }
     };
 
+    /**
+     * Attaches the event listeners for mouseover and mouseout events to the
+     * document object. This is done to capture the events globally and
+     * determine if the target element is one of the allowed selectors.
+     *
+     * The event listeners are removed when the component is unmounted.
+     * Currently there is no removal of the component.
+     */
     useEffect(() => {
+        // Attach event listeners
         document.addEventListener("mouseover", handleMouseOver);
         document.addEventListener("mouseout", handleMouseOut);
+
+        // Clean up event listeners when component is unmounted
         return () => {
             document.removeEventListener("mouseover", handleMouseOver);
             document.removeEventListener("mouseout", handleMouseOut);
@@ -67,47 +103,10 @@ function App() {
                     message={hoverMessage}
                 />
                 <Frame mousePosition={mousePosition} />
-                <div className=" text-2xl font-semibold overflow-scroll rounded-xl p-2 md:p-8 mx-0 md:mx-16 my-16 bg-[--col-base-300] h-[85%] flex flex-col md:flex-row">
-                    <div className="flex-1 items-center justify-center flex flex-col">
-                        <div className="flex flex-col mx-6 hover:cursor-default">
-                            <div
-                                data-hover-message="Hey! Its ME!"
-                                className="box hoverable mb-3 self-center md:self-start rounded-xl h-32 w-32"
-                            >
-                                <img
-                                    className="hoverable w-full h-full object-cover rounded-xl"
-                                    src={IHateThisPhoto}
-                                    alt="Hey Look! Its me :)"
-                                />
-                            </div>
-                            dev-portfolio
-                            <h1 className="text-center md:text-start">
-                                DEVONTAE CHADWICK
-                            </h1>
-                            <p className="text-sm font-normal text-center md:text-start">
-                                Developer x Designer
-                            </p>
-                            <h2 className="text-2xl mt-6">About</h2>
-                            <p className=" text-sm font-normal">
-                                Passionate software developer with a knack for
-                                solving complex problems and building efficient
-                                systems. I have a degree in IT and a strong
-                                background in full-stack development, working
-                                with technologies like React, ASP.NET, Python,
-                                and SQL.
-                            </p>
-                            <div className="socials mt-5 flex gap-3">
-                                <FaGithub className="w-8 h-8" />
-                                <IoIosMail className="w-8 h-8" />
-                            </div>
-                            <div className=" hoverable transition-all text-base hover:cursor-pointer hover:text-blue-400 mt-3 flex gap-3 text-[--col-text-base] py-3">
-                                <IoMdDownload className="w-7 h-7" /> Download
-                                Resume
-                            </div>
-                        </div>
-                    </div>
+                <div className=" text-2xl font-semibold rounded-xl p-2 md:p-8 mx-0 md:mx-16 my-16 bg-[--col-base-300] h-[85%] flex flex-col md:flex-row">
+                    <DeveloperSidePanel />
                     <div className="flex-[2_2_0%] flex flex-col md:flex-row mt-3 gap-4">
-                        <div className="flex-1 w-full h-full bg-red-400 rounded-md">
+                        <div className="flex-1 overflow-scroll w-full p-4 h-full bg-[--col-text-base] text-[--col-base-200] rounded-md p-">
                             <Routes>
                                 <Route path="/" element={<HomePage />} />
                                 <Route
