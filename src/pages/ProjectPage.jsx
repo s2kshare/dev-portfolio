@@ -1,10 +1,10 @@
 import React from "react";
 import { FaPython, FaJs, FaDocker, FaReact, FaJava } from "react-icons/fa"; // Import necessary icons
 import { DiMongodb, DiCss3, DiHtml5, DiJqueryLogo } from "react-icons/di"; // Additional icons for HTML, CSS, etc.
-
 import projects from "../data/projects";
+import { motion } from "framer-motion";
 
-function ProjectPage() {
+function ProjectPage({ variants }) {
     // Calculate how many columns we should have based on the number of projects
     const projectCount = Object.keys(projects).length;
     let columns = "grid-cols-1"; // Default to 1 column
@@ -35,7 +35,12 @@ function ProjectPage() {
     };
 
     return (
-        <div className="p-5">
+        <motion.div
+            variants={variants}
+            initial="initial"
+            animate="final"
+            className="p-5"
+        >
             <h1 className="mb-6 text-3xl text-center">Recent Projects</h1>
             <hr className=" border-[--col-base-300] mt-4 mb-10 opacity-40" />
             <div className={`w-full grid gap-6 ${columns} h-full`}>
@@ -96,7 +101,7 @@ function ProjectPage() {
                     </div>
                 ))}
             </div>
-        </div>
+        </motion.div>
     );
 }
 

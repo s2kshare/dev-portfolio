@@ -1,9 +1,15 @@
 import { IoIosMail } from "react-icons/io";
 import { FaGithub, FaDiscord } from "react-icons/fa6";
+import { motion } from "framer-motion";
 
-function ContactPage() {
+function ContactPage({ variants }) {
     return (
-        <div className="flex flex-col items-center justify-center h-full">
+        <motion.div
+            variants={variants}
+            initial="initial"
+            animate="final"
+            className="flex flex-col items-center justify-center h-full"
+        >
             <h1 className="text-3xl mb-3">Contact Me!</h1>
             <p className=" text-sm font-normal w-1/2">
                 If you're trying to get in contact with me, you can try
@@ -30,7 +36,7 @@ function ContactPage() {
                     Discord
                 </p>
             </div>
-        </div>
+        </motion.div>
     );
 }
 

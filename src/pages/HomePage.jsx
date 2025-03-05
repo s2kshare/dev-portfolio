@@ -3,7 +3,7 @@ import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
 import { FaEnvelope, FaReact } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 
-function HomePage() {
+function HomePage({ variants }) {
     const welcomeArray = ["W", "E", "L", "C", "O", "M", "E"];
     const containerRef = useRef(null);
     const navigate = useNavigate();
@@ -28,6 +28,9 @@ function HomePage() {
     return (
         <motion.div
             ref={containerRef}
+            variants={variants}
+            initial="initial"
+            animate="final"
             className="flex items-center justify-center w-full h-full flex-col"
             onMouseMove={handleMouseMove}
         >
