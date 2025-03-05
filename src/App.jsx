@@ -98,7 +98,7 @@ function App() {
     }, []);
 
     return (
-        <BrowserRouter>
+        <BrowserRouter basename="/dev-portfolio">
             <LocationProvider>
                 <div
                     ref={appref}
