@@ -1,7 +1,7 @@
 import React from "react";
 import { FaPython, FaJs, FaDocker, FaReact, FaJava } from "react-icons/fa"; // Import necessary icons
 import { DiMongodb, DiCss3, DiHtml5, DiJqueryLogo } from "react-icons/di"; // Additional icons for HTML, CSS, etc.
-import projects from "../data/projects";
+import projects from "../data/ProjectsData";
 import { motion } from "framer-motion";
 
 function ProjectPage({ variants }) {

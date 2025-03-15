@@ -102,7 +102,7 @@ function App() {
             <LocationProvider>
                 <div
                     ref={appref}
-                    className="bg-[--col-base-200] text-white w-screen h-[100vh] min-h-[100vh] p-2 md:p-10"
+                    className="bg-[--col-base-200] text-white w-screen h-[100vh] min-h-[100vh] py-20 px-14"
                     onMouseMove={handleMouseMove}
                 >
                     <CustomMouseCross
@@ -111,15 +111,8 @@ function App() {
                         message={hoverMessage}
                     />
                     <Frame mousePosition={mousePosition} />
-                    <div className=" text-2xl font-semibold rounded-xl h-0 md:h-[90%] p-2 md:p-8 mx-0 md:mx-16 my-16 md:bg-[--col-base-300] flex flex-col md:flex-row">
+                    <div className="flex items-center justify-center h-full bg-gray-600 rounded-2xl">
                         <DeveloperSidePanel />
-                        <div className="flex-[2_2_0%] flex flex-col md:flex-row mt-3 gap-4">
-                            <div className="flex-1 overflow-scroll w-full h-full bg-[--col-text-base] text-[--col-base-200] rounded-md p-">
-                                <RoutesWithAnimation
-                                    mousePosition={mousePosition}
-                                />
-                            </div>
-                        </div>
                     </div>
                 </div>
             </LocationProvider>

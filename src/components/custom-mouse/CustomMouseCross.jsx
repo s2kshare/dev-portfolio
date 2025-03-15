@@ -66,7 +66,7 @@ function CustomMouseCross({ mousePosition, isHovering, message }) {
                 viewBox="0 0 49 49"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className=" mix-blend-difference bg-blend-difference fixed pointer-events-none"
+                className=" mix-blend-difference bg-blend-difference fixed pointer-events-none z-40"
                 style={{
                     translateX: "-125%",
                     translateY: "-125%",
@@ -94,7 +94,7 @@ function CustomMouseCross({ mousePosition, isHovering, message }) {
             {/* Wipe opacity animation for floating text next to cursor only during hovering */}
             {isHovering && message && (
                 <motion.p
-                    className="fixed pointer-events-none bg-[--col-base-300] px-2 py-1 rounded"
+                    className="fixed pointer-events-none bg-[--col-base-300] px-2 py-1 rounded z-50"
                     style={{
                         translateX: "0%",
                         translateY: "-200%",
